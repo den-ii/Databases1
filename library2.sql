@@ -4,11 +4,18 @@
 --        and loan information.
 
 -- Table: books(isbn (varchar) (Primary Key), title (varchar, not null), 
---        author (varchar), genre (varchar), quantity (int, not null))
+--        author (int) (Foreign Key), genre (varchar), quantity (int, not null))
 -- Description: This table stores information about books.
 
 -- Table: members(member_id (int, auto increment) (Primary Key) , name (varchar, not null), 
 --        email (varchar), phone (varchar)
+-- Description: This table stores information about library members.
+
+-- Table: authors(author_id (int, auto increment) (Primary Key) , name (varchar, not null)),
+-- nationality varchar(50), birth_year (50))
+
+-- Description: This table stores information about bok authors.
+
 -- Description: This table stores information about library members.
 
 -- Table: loans(loan_id (int, auto increment) (Primary Key), member_id (int) (Foreign Key),
@@ -19,23 +26,23 @@
 
 -- Inserts records into the authors table
 --------------------------------------------------------------------------------
-INSERT INTO authors (author_id, author_name) 
-VALUES (1, 'J.D. Salinger');
+INSERT INTO authors (author_id, name, nationality, birth_year) 
+VALUES (1, 'J.D. Salinger', 'American', 1919);
 
-INSERT INTO authors (author_id, author_name) 
-VALUES (2, 'Dan Brown');
+INSERT INTO authors (author_id, name, nationality, birth_year) 
+VALUES (2, 'Dan Brown', 'American', 1964);
 
-INSERT INTO authors (author_id, author_name)
-VALUES (3, 'Harper Lee');
+INSERT INTO authors (author_id, name, nationality, birth_year)
+VALUES (3, 'Harper Lee', 'American', 1926);
 
-INSERT INTO authors (author_id, author_name)
-VALUES (4, 'F. Scott Fitzgerald');
+INSERT INTO authors (author_id, name, nationality, birth_year)
+VALUES (4, 'F. Scott Fitzgerald', 'American', 1966);
 
-INSERT INTO authors (author_id, author_name)
-VALUES (5, 'Gabriel Garcia Marquez',);
+INSERT INTO authors (author_id, name, nationality, birth_year)
+VALUES (5, 'Gabriel Garcia Marquez', 'Colombian', 1927);
 
-INSERT INTO authors (author_id, author_name)
-VALUES (6, 'Herman Melville');
+INSERT INTO authors (author_id, name, nationality, birth_year)
+VALUES (6, 'Herman Melville', 'American', 1919);
 
 
 
@@ -53,7 +60,7 @@ INSERT INTO books (isbn, title, author, genre, quantity)
 VALUES ('9780241950463', 'Raise high the roof beam', 1, 'Fiction', 10);
 
 INSERT INTO books (isbn, title, author, genre, quantity)
-VALUES ('0061120081', 'To Kill a Mockingbird', 3, 'Fiction', 25);
+VALUES ('0061120089431', 'To Kill a Mockingbird', 3, 'Fiction', 25);
 
 INSERT INTO books (isbn, title, author, genre, quantity)
 VALUES ('9780140283334', 'The Great Gatsby', 4, 'Fiction', 5);
@@ -62,7 +69,7 @@ INSERT INTO books (isbn, title, author, genre, quantity)
 VALUES ('9780060935467', 'One Hundred Years of Solitude', 5,  'Fiction', 30);
 
 INSERT INTO books (isbn, title, author, genre, quantity)
-VALUES ('9780143039433', 'Beloved', 'Toni Morrison', 'Fiction', 10);
+VALUES ('9780143039433', 'Beloved', NULL, 'Fiction', 10);
 
 INSERT INTO books (isbn, title, author, genre, quantity)
 VALUES ('9780486821955', 'Don Quixote', NULL, 'Fiction', 50);
@@ -90,61 +97,61 @@ INSERT INTO  members (memberid, name, email, phone)
 VALUES (3, "Jane Doe", "janedoe@gmail.com", "945326456");
 
 INSERT INTO  members (memberid, name, email, phone)
-VALUES (4, "maryjane@gmail.com", "5843668778");
+VALUES (4, "Mary Jane", "maryjane@gmail.com", "5843668778");
 
-INSERT INTO members (name, email)
-VALUES ("Deni Ochiche", "ochichedeni@gmail.com");
+INSERT INTO members (name, email, phone)
+VALUES ("Deni Ochiche", "ochichedeni@gmail.com", "09498398393");
 
-INSERT INTO members (name, email)
-VALUES ("Soka Mikaw", "sokamekaw@gmail.com");
+INSERT INTO members (name, email, phone)
+VALUES ("Soka Mikaw", "sokamekaw@gmail.com", "04948428679");
 
-INSERT INTO members (name, email)
-VALUES ("Leroy Sane", "leroysane@gmail.com");
+INSERT INTO members (name, email, phone)
+VALUES ("Leroy Sane", "leroysane@gmail.com", "0958039850");
 
-INSERT INTO members (name, email)
-VALUES ("Ousmane Dembele", "dembele@gmail.com");
+INSERT INTO members (name, email, phone)
+VALUES ("Ousmane Dembele", "dembele@gmail.com", "0948398393");
 
-INSERT INTO members (name, email)
-VALUES ("Stiles Stillinski", "stiles@gmail.com");
+INSERT INTO members (name, email, phone)
+VALUES ("Stiles Stillinski", "stiles@gmail.com", "0958698373");
 
-INSERT INTO members (name, email)
-VALUES ("Mary Lander", "landerm@gmail.com");
+INSERT INTO members (name, email, phone)
+VALUES ("Mary Lander", "landerm@gmail.com", "0447323593");
 
-INSERT INTO members (name, email)
-VALUES ("John Mcginn", "mcginn@gmail.com");
+INSERT INTO members (name, email, phone)
+VALUES ("John Mcginn", "mcginn@gmail.com", "05483958369");
 
-INSERT INTO members (name, email)
-VALUES ("Denzel Washington", "denzelw@gmail.com");
+INSERT INTO members (name, email, phone)
+VALUES ("Denzel Washington", "denzelw@gmail.com", "0645378693");
 
-INSERT INTO members (name, email)
-VALUES ("Arial Xoom", "arialx@gmail.com");
+INSERT INTO members (name, email, phone)
+VALUES ("Arial Xoom", "arialx@gmail.com", "05685944369");
 
-INSERT INTO members (name, email)
-VALUES ("Faith Cradle", "cradlef@gmail.com");
+INSERT INTO members (name, email, phone)
+VALUES ("Faith Cradle", "cradlef@gmail.com", "05586968456");
 
-INSERT INTO members (name, email)
-VALUES ("Lora Croft", "loracroft@gmail.com");
+INSERT INTO members (name, email, phone)
+VALUES ("Lora Croft", "loracroft@gmail.com", "05453757366");
 
-INSERT INTO members (name, email)
-VALUES ("Linda Sunshine", "lindasunshine@gmail.com");
+INSERT INTO members (name, email, phone)
+VALUES ("Linda Sunshine", "lindasunshine@gmail.com", "07155757366");
 
-INSERT INTO members (name, email)
-VALUES ("Marcus Rashford", "rashford@gmail.com");
+INSERT INTO members (name, email, phone)
+VALUES ("Marcus Rashford", "rashford@gmail.com", "07433354356");
 
-INSERT INTO members (name, email)
-VALUES ("Rosa Clean", "rosaclean@gmail.com");
+INSERT INTO members (name, email, phone)
+VALUES ("Rosa Clean", "rosaclean@gmail.com", "06443454656");
 
-INSERT INTO members (name, email)
-VALUES ("Thiago Silva", "thiagosilva@gmail.com");
+INSERT INTO members (name, email, phone)
+VALUES ("Thiago Silva", "thiagosilva@gmail.com", "07443355666");
 
-INSERT INTO members (name, email)
-VALUES ("Claire Risen", "clairerisen@gmail.com");
+INSERT INTO members (name, email, phone)
+VALUES ("Claire Risen", "clairerisen@gmail.com", "09343355546");
 
-INSERT INTO members (name, email)
-VALUES ("Renuka Arya", "renuka@gmail.com");
+INSERT INTO members (name, email, phone)
+VALUES ("Renuka Arya", "renuka@gmail.com", "07423365566");
 
-INSERT INTO members (name, email)
-VALUES ("Chloe Sim", "chloesim@gmail.com");
+INSERT INTO members (name, email, phone)
+VALUES ("Chloe Sim", "chloesim@gmail.com", "08343445766");
 
 --------------------------------------------------------------------------------------
 -- Inserts records into the loans table
@@ -162,12 +169,6 @@ INSERT INTO loans (memberid, isbn, loandate, returndate)
 VALUES (3, "9780140283334", '2024-03-05', '2024-06-25');
 
 INSERT INTO loans (memberid, isbn, loandate, returndate)
-VALUES (5, '9780895773227', '2024-03-05', '2024-06-25');
-
-INSERT INTO loans (memberid, isbn, loandate, returndate)
-VALUES (7, '9780895773227', '2024-03-05', '2024-06-25');
-
-INSERT INTO loans (memberid, isbn, loandate, returndate)
 VALUES (2, "9780060935467", '2023-05-11', '2023-07-15');
 
 INSERT INTO loans (memberid, isbn, loandate, returndate)
@@ -179,7 +180,7 @@ VALUES (3, '9780895773227', '2024-03-05', '2024-06-25');
 -- Retrieve all books written by an author with id=1.
 ----------------------------------------------------------------------------------------
 
-SELECT books.isbn, books.title, author.name, books.genre FROM authors
+SELECT books.isbn, books.title,books.genre,  authors.name AS author FROM authors
 JOIN books ON authors.author_id = books.author
 WHERE authors.author_id = 1;
 
@@ -188,7 +189,7 @@ WHERE authors.author_id = 1;
 
 -- Drops the Authors table.
 ----------------------------------------------------------------------------------------
-
+ALTER TABLE books DROP FOREIGN KEY author_id;
 DROP TABLE authors;
 
 -------------------------------------------------------------------------------------------
@@ -197,7 +198,7 @@ DROP TABLE authors;
 -- Retrieve the names of all members who have borrowed a book with isbn='9780895773227'.
 ---------------------------------------------------------------------------------------------
 
-SELECT members.name, books.title FROM loans
+SELECT members.name, books.title AS book FROM loans
 JOIN members ON loans.memberid = members.memberid
 JOIN books ON loans.isbn = books.isbn
 WHERE books.isbn = '9780895773227';
