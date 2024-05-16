@@ -74,7 +74,7 @@ VALUES (14, "9780060935467", '2023-05-11', '2023-07-15');
 ----------------------------------------------------------------------------------------
 -- Retrieve all information about books borrowed by a specific member.
 
--- Retrieves all books borrowed by member_id = 2
+-- Retrieves all books borrowed by member_id = 13
 ----------------------------------------------------------------------------------------
 
 SELECT books.isbn, books.title, books.author, books.genre, FROM loans
